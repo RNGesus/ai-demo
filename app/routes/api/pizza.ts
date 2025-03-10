@@ -11,7 +11,7 @@ const systemMessage = `
       Use the metric system.
       `
 
-export const APIRoute = createAPIFileRoute('/api/introduction')({
+export const APIRoute = createAPIFileRoute('/api/pizza')({
   POST: async ({ request }) => {
     const { messages } = await request.json()
     const result = streamText({
