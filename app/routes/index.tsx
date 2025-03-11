@@ -23,7 +23,7 @@ function RouteComponent() {
   }, [messages])
 
   return (
-    <div className="p-2 grid grid-rows-[auto_1fr_auto] gap-4 h-screen container mx-auto">
+    <div className="p-2 grid grid-rows-[auto_1fr_auto] gap-4 h-screen lg:container mx-auto">
       <header className="text-center">
         <h1 className="text-2xl font-bold">Welcome, let us make some Pizza! 🍕</h1>
       </header>
