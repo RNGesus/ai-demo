@@ -1,14 +1,17 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google'
 import { createAPIFileRoute } from '@tanstack/react-start/api'
-import { streamText } from 'ai'
+import { streamText, tool } from 'ai'
+import { z } from 'zod'
 
 const google = createGoogleGenerativeAI()
 const systemMessage = `
       You are a pizza maker.
       You are given a list of ingredients.
       You need to make a pizza with the given ingredients.
-      Prefer vegan ingredients.
-      Use the metric system.
+      Prefer vegan ingredients and do not mention it all the time.
+      Prefer recipes without cheese, cheese substitutes and do not mention it all the time.
+      Try to use even uncommon ingredients as long as they are edible.
+      Use the metric units instead of imperial units.
       `
 
 export const APIRoute = createAPIFileRoute('/api/pizza')({
