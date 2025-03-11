@@ -7,8 +7,12 @@ export const Route = createFileRoute('/')({
 })
 
 function RouteComponent() {
-  const { messages, append } = useChat({
+  const formRef = useRef<HTMLFormElement>(null)
+
+  const { messages, handleSubmit, handleInputChange } = useChat({
     api: '/api/pizza',
+    onFinish: formRef.current?.reset,
+
   })
 
   const chatRef = useRef<HTMLDivElement>(null)
@@ -25,7 +29,7 @@ function RouteComponent() {
       </header>
 
       <main
-        className="overflow-y-auto grid place-content-start gap-4 scroll-smooth min-h-[min(60vh,100%)]"
+        className="overflow-y-auto grid justify-stretch items-start gap-4 scroll-smooth min-h-[min(60vh,100%)]"
         ref={chatRef}
       >
         {messages.map(message => (
@@ -49,22 +53,22 @@ function RouteComponent() {
         ))}
       </main>
       <form
-        className="flex place-content-center place-items-center gap-2"
-        onSubmit={(e) => {
-          e.preventDefault()
-          const form = e.currentTarget
-          const messageTextarea = form.elements.namedItem('message') as HTMLTextAreaElement
-          append({ content: messageTextarea.value, role: 'user' })
-          form.reset()
-        }}
+        ref={formRef}
+        className="flex items-center justify-center gap-2"
+        onSubmit={handleSubmit}
       >
-        {/* TODO: handle 'enter' and 'ctrl+enter' */}
         <textarea
           rows={2}
-          cols={500}
-          className="textarea textarea-md"
+          cols={200}
+          className="textarea textarea-md textarea-primary"
           placeholder="Enter some ingredients..."
           name="message"
+          onChange={handleInputChange}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              handleSubmit(e)
+            }
+          }}
         />
         <button className="btn btn-primary" type="submit">Prepare pizza</button>
       </form>
