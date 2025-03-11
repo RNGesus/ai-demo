@@ -1,7 +1,6 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google'
 import { createAPIFileRoute } from '@tanstack/react-start/api'
-import { streamText, tool } from 'ai'
-import { z } from 'zod'
+import { streamText } from 'ai'
 
 const google = createGoogleGenerativeAI()
 const systemMessage = `
