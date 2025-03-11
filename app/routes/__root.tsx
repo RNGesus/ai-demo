@@ -6,7 +6,6 @@ import {
   Scripts,
 } from '@tanstack/react-router'
 import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
-import { NotFound } from '~/components/NotFound'
 import appCss from '~/styles/app.css?url'
 
 import { seo } from '~/utils/seo'
@@ -48,7 +47,6 @@ export const Route = createRootRoute({
       </RootDocument>
     )
   },
-  notFoundComponent: () => <NotFound />,
   component: RootComponent,
 })
 
