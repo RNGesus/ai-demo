@@ -8,8 +8,6 @@ import {
 import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
 import appCss from '~/styles/app.css?url'
 
-import { seo } from '~/utils/seo'
-
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -20,10 +18,8 @@ export const Route = createRootRoute({
         name: 'viewport',
         content: 'width=device-width, initial-scale=1',
       },
-      ...seo({
-        title: 'AI Demo',
-        description: 'AI Demo',
-      }),
+      { title: 'Pizza Baker AI Demo' },
+      { name: 'description', content: 'Pizza Baker AI Demo' },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
