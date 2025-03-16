@@ -11,7 +11,7 @@ function RouteComponent() {
 
   const { messages, handleSubmit, handleInputChange } = useChat({
     api: '/api/pizza',
-    onFinish: formRef.current?.reset,
+    onFinish: () => formRef.current?.reset(),
   })
 
   const chatRef = useRef<HTMLDivElement>(null)
@@ -65,7 +65,8 @@ function RouteComponent() {
           onChange={handleInputChange}
           onKeyDown={(e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
-              handleSubmit(e)
+              e.preventDefault()
+              status === 'ready' && handleSubmit(e)
             }
           }}
         />
