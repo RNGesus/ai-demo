@@ -12,7 +12,6 @@ function RouteComponent() {
   const { messages, handleSubmit, handleInputChange } = useChat({
     api: '/api/pizza',
     onFinish: formRef.current?.reset,
-
   })
 
   const chatRef = useRef<HTMLDivElement>(null)
@@ -25,7 +24,7 @@ function RouteComponent() {
   return (
     <div className="p-2 grid grid-rows-[auto_1fr_auto] gap-4 h-screen lg:container mx-auto">
       <header className="text-center">
-        <h1 className="text-2xl font-bold">Welcome, let us make some Pizza! 🍕</h1>
+        <h1 className="text-2xl font-bold">Welcome, let us make a pizza! 🍕</h1>
       </header>
 
       <main
