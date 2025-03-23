@@ -6,6 +6,14 @@ export const Route = createFileRoute('/')({
   component: RouteComponent,
 })
 
+function formatTime(date: Date) {
+  return new Intl.DateTimeFormat('de-DE', {
+    timeZone: 'Europe/Berlin',
+    dateStyle: 'short',
+    timeStyle: 'short',
+  }).format(date)
+}
+
 function RouteComponent() {
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -41,7 +49,7 @@ function RouteComponent() {
                     className="text-xs opacity-50"
                     dateTime={message.createdAt.toISOString()}
                   >
-                    {message.createdAt.toLocaleString('de-DE', { timeZone: 'Europe/Berlin', dateStyle: 'short', timeStyle: 'short' })}
+                    {formatTime(message.createdAt)}
                   </time>
                 )}
             </div>
