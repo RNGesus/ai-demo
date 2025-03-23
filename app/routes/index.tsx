@@ -42,7 +42,7 @@ function RouteComponent() {
         {messages.map((message, index) => (
           <div key={message.id} className={`chat ${message.role === 'user' ? 'chat-end' : 'chat-start'}`}>
             <div className="chat-header">
-              {message.role === 'user' ? 'You' : 'AI'}
+              {message.role === 'user' ? 'You' : 'AI Chef'}
               {message.createdAt
                 && (
                   <time
@@ -56,9 +56,10 @@ function RouteComponent() {
             <div className="chat-bubble max-w-[min(80%,800px)]">
               <pre className="whitespace-pre-wrap">{message.content}</pre>
             </div>
-            {index === messages.length - 1 && message.role === 'assistant' && status === 'streaming' && (
-              <div className="chat-footer opacity-50">Preparing recipe...</div>
-            )}
+            {index === messages.length - 1
+              && message.role === 'assistant'
+              && status === 'streaming'
+              && (<div className="chat-footer opacity-50">Preparing recipe...</div>)}
           </div>
         ))}
       </main>
