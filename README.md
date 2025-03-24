@@ -1,6 +1,6 @@
 # Pizza Baker AI Demo
 
-This is a pizza recipe generator app that uses AI to create unique pizza recipes based on ingredients provided by the user. 
+This is a pizza recipe generator app that uses AI to create unique pizza recipes based on ingredients provided by the user.
 
 ## Features
 
