@@ -8,14 +8,5 @@
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true
   },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "go.goroot": "/home/fhuhn/.local/share/mise/installs/go/1.24.1",
-  "debug.javascript.defaultRuntimeExecutable": {
-    "pwa-node": "/home/fhuhn/.local/share/mise/shims/node"
-  },
-  "python.defaultInterpreterPath": "/home/fhuhn/.local/share/mise/installs/python/3.13.2/bin/python",
-  "go.alternateTools": {
-    "go": "/home/fhuhn/.local/share/mise/shims/go",
-    "gopls": "/home/fhuhn/.local/share/mise/shims/gopls"
-  }
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
