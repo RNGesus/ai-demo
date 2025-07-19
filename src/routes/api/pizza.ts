@@ -1,5 +1,5 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google'
-import { createAPIFileRoute } from '@tanstack/react-start/api'
+import { createServerFileRoute } from '@tanstack/react-start/server'
 import { streamText } from 'ai'
 
 const google = createGoogleGenerativeAI()
@@ -13,11 +13,11 @@ const systemMessage = `
       Use the metric units instead of imperial units.
       `
 
-export const APIRoute = createAPIFileRoute('/api/pizza')({
+export const ServerRoute = createServerFileRoute('/api/pizza').methods({
   POST: async ({ request }) => {
     const { messages } = await request.json()
     const result = streamText({
-      model: google('gemini-2.0-flash-lite-preview-02-05'),
+      model: google('gemini-2.5-flash'),
       system: systemMessage,
       messages: messages ?? [],
     })

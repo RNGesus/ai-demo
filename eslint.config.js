@@ -13,7 +13,7 @@ export default antfu(
       '**/node_modules/**',
       '**/dist/**',
       '**/build/**',
-      'app/routeTree.gen.ts',
+      'src/routeTree.gen.ts',
       'tsconfig.json',
     ],
   },
